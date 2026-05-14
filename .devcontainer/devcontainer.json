@@ -12,9 +12,9 @@
       "version": "latest"
     }
   },
-  // این خط باعث می‌شود به محض ساخته شدن کانتینر، سرویس ران شود
-  "onCreateCommand": "gh codespace ports visibility 443:public -c $CODESPACE_NAME && sudo /usr/local/bin/xray -c /etc/config.json &>/tmp/xray.log &",
-  // این خط لیست کانفیگ‌ها را به محض ورود شما به ترمینال چاپ می‌کند
+  // این بخش مشکل ریکاوری مود را حل می‌کند و دستور شما را بلافاصله ران می‌کند
+  "postCreateCommand": "gh codespace ports visibility 443:public -c $CODESPACE_NAME && sudo /usr/local/bin/xray -c /etc/config.json &>/tmp/xray.log &",
+  // نمایش لیست کانفیگ‌ها به محض باز شدن ترمینال
   "postAttachCommand": "/usr/local/bin/print-configs.sh",
   "portsAttributes": {
     "443": {
